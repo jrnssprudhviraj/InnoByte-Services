@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="King Sukh Guest House - Experience comfort and luxury at an affordable price.">
+    <title>King Sukh Guest House</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('ayodhya.webp');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+
+        .hero .cta-button {
+            background-color: #ff6600;
+            padding: 15px 30px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .hero .cta-button:hover {
+            background-color: #e55b00;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Rooms Section */
+        .room-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .room-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .room-card:hover {
+            transform: scale(1.05);
+        }
+
+        .room-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .room-card h3 {
+            font-size: 1.5rem;
+            margin: 15px;
+        }
+
+        .room-card p {
+            font-size: 1rem;
+            margin: 10px 15px;
+        }
+
+        .room-card a {
+            display: block;
+            text-decoration: none;
+            background-color: #ff6600;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px auto 20px;
+            width: 80%;
+            text-align: center;
+        }
+
+        .room-card a:hover {
+            background-color: #e55b00;
+        }
+
+        .room-card .booking-details {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .room-card input {
+            width: 48%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .room-card button {
+            background-color: #ff6600;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .room-card button:hover {
+            background-color: #e55b00;
+        }
+
+        /* Services Section */
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #ffcc00;
+            color: #333;
+            border-radius: 8px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .service-card i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .service-card:hover {
+            transform: scale(1.1);
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+        }
+
+        .contact-info {
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+
+        .contact-info span {
+            display: block;
+            margin: 5px 0;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            font-size: 2rem;
+            color: #333;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #ff6600;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background-color: #ff6600;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #e55b00;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .room-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .room-card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">King Sukh Guest House</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#rooms">Rooms</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to King Sukh Guest House</h1>
+        <p>Your comfort is our priority. 🌟</p>
+        <a href="#contact" class="cta-button">Book Now</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px;">
+            <img src="out.jpg" alt="About King Sukh Guest House" style="width: 300px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+            <p style="flex: 1; max-width: 500px; text-align: left;"><strong><u> Best Holidays Start Here!</u></strong><br>
+                Embark on a tranquil journey at our Kingsukh Guest House, enveloped by the scenic allure of Biharinath Hill, Baranti Hill, 
+                Susunia Hill, Joychandi Hill, Garhpanchkot, Baranti Dam, Maithon Dam, and the captivating Panchat Dam. 
+                Revel in the embrace of comfort, relish delightful meals, and unwind in our verdant garden oasis. 
+                Your ideal retreat beckons, promising a harmonious blend of nature's beauty and heartfelt hospitality.
+                Explore the hidden gems of Purulia, creating memories that linger long after your stay.
+                <br>
+                
+            <strong> Address:</strong> Beside Barshal Water Tank, Manpur, Barhanti, West Bengal 723156<br>
+            <strong> Contact us:</strong> +91 9007062180 🛏️✨</p>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="section">
+        <h2>Our Rooms</h2>
+        <div class="room-list">
+            <div class="room-card">
+                <img src="room1.jpg" alt="Deluxe Room">
+                <h3>Deluxe Room</h3>
+                <p>Comfortable and spacious room with modern amenities. 🛋️</p>
+                <div class="booking-details">
+                    <input type="date" placeholder="Check-in">
+                    <input type="date" placeholder="Check-out">
+                </div>
+                <button>Book Now</button>
+            </div>
+            <div class="room-card">
+                <img src="small.jpg" alt="Standard Room">
+                <h3>Standard Room</h3>
+                <p>Cozy and budget-friendly, ideal for short stays. 💰</p>
+                <div class="booking-details">
+                    <input type="date" placeholder="Check-in">
+                    <input type="date" placeholder="Check-out">
+                </div>
+                <button>Book Now</button>
+            </div>
+            <div class="room-card">
+                <img src="large.jpg" alt="Family Suite">
+                <h3>Family Suite</h3>
+                <p>Spacious suite perfect for families. 👨‍👩‍👧‍👦</p>
+                <div class="booking-details">
+                    <input type="date" placeholder="Check-in">
+                    <input type="date" placeholder="Check-out">
+                </div>
+                <button>Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <h2>Our Services</h2>
+        <div class="services">
+            <div class="service-card">
+                <i class="fas fa-wifi"></i>
+                <p>Free Wi-Fi 📶</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-concierge-bell"></i>
+                <p>Room Service 🛎️</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-coffee"></i>
+                <p>Complimentary Breakfast ☕</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-shuttle-van"></i>
+                <p>Airport Shuttle 🚌</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-clock"></i>
+                <p>24/7 Reception ⏰</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-spa"></i>
+                <p>Spa and Wellness Center 🧘</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section">
+        <h2>Our Gallery</h2>
+        <div class="gallery-grid">
+            <img src="baranti.webp" alt="Gallery Image 1">
+            <img src="mithonDam.webp" alt="Gallery Image 2">
+            <img src="palash.webp" alt="Gallery Image 3">
+            <img src="1.jpg" alt="Gallery Image 4">
+            <img src="header.jpg" alt="Gallery Image 5">
+            <img src="ayodhya.webp" alt="Gallery Image 6">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <span><i class="fas fa-map-marker-alt"></i> Address:Beside Barshal Water Tank,Manpur, Barhanti,West Bengal 723156🌆</span>
+            <span><i class="fas fa-phone"></i> Phone: +91 9007062180 📞</span>
+            <span><i class="fas fa-envelope"></i> Email: kkghosh0099@gmail.com 📧</span>
+            <span><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/Kingsukh+Guest+House/@23.5863324,86.8572155,17z/data=!4m14!1m7!3m6!1s0x39f6e3fdd3ff9ebb:0x517a57e3f93c1807!2sKingsukh+Guest+House!8m2!3d23.5863324!4d86.8597904!16s%2Fg%2F11srygxjp6!3m5!1s0x39f6e3fdd3ff9ebb:0x517a57e3f93c1807!8m2!3d23.5863324!4d86.8597904!16s%2Fg%2F11srygxjp6?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">Find us on Google Maps</a></span>
+        </div>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" class="fab fa-facebook"></a>
+            <a href="https://twitter.com" target="_blank" class="fab fa-twitter"></a>
+            <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
+            <a href="https://youtube.com" target="_blank" class="fab fa-youtube"></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 King Sukh Guest House | All rights reserved. 🌟</p>
+    </footer>
+</body>
+</html>
